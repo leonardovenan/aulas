@@ -8,6 +8,7 @@ Este é um arquivo de script temporário.
 #aula sistemas distribuidos 24/09/2018
 
 import threading
+import time
 
 '''
 def seu_coracao():
@@ -30,7 +31,6 @@ def ola_mundo(numero1, numero2):
 
 t = threading.Thread(target=ola_mundo, args=(2, 3))
 t.start()
-'''
 
 def ola_mundo(numero1, numero2):
 	print('numeros: %s %s' % (numero1, numero2))
@@ -44,3 +44,14 @@ for i in range(5):
 	t = threading.Thread(target=ola_mundo, args=(2, 1))
 	threads.append(t)
 	t.start()
+'''
+
+def funcao():
+	print(threading.currentThread().getName(), ' iniciando')
+	time.sleep(2)
+	print(threading.currentThread().getName(), ' encerrando')
+	return
+
+
+t = threading.Thread(target=funcao) # usa o nome padrao da thread
+t.start()
