@@ -50,8 +50,7 @@ def funcao():
 
 
 t = threading.Thread(target=funcao) # usa o nome padrao da thread
-t.start()
-    
+t.start()    
 
 
 def ola_mundo(numero1, numero2):
@@ -66,7 +65,6 @@ for i in range(5):
 	t = threading.Thread(target=ola_mundo, args=(2, 1))
 	threads.append(t)
 	t.start()    
-'''
 
 def funcao1():
 	print(threading.currentThread().getName(), ' iniciando')
@@ -84,8 +82,21 @@ def funcao2():
 
 t1 = threading.Thread(name='thread1', target=funcao1) # define um nome para a thread
 t2 = threading.Thread(name='thread2', target=funcao2) # define um nome para a thread
-t3 = threading.Thread(target=funcao1) # usa o nome padrao da thread
+t3 = threading.Thread(target=funcao2) # usa o nome padrao da thread
 
 t1.start()
 t2.start()
 t3.start()
+
+'''
+logging.basicConfig(level=logging.DEBUG, format='[%(levelname)s] (%(threadName)-10s) %(message)s',)
+
+def funcao():
+	logging.debug('iniciando')
+	time.sleep(2)
+	logging.debug('encerrando')
+
+
+t = threading.Thread(name='thread1', target=funcao) # define um nome para a thread
+
+t.start()
